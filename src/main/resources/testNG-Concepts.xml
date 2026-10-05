@@ -1,0 +1,59 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="TestNG Concepts Suite"
+       configfailurepolicy="continue">
+
+    <listeners>
+
+        <listener class-name="listeners.TestListener"/>
+
+        <listener class-name="listeners.InvokedMethodListener"/>
+
+        <listener class-name="listeners.ConfigurationListener"/>
+
+        <!-- Runtime method filtering disabled for reporting baseline -->
+        <!-- <listener class-name="listeners.MethodInterceptor"/> -->
+
+        <!-- Keep retry active -->
+        <listener class-name="listeners.AnnotationTransformer"/>
+
+        <!-- Data filtering disabled for reporting baseline -->
+        <!-- <listener class-name="listeners.DataProviderInterceptor"/> -->
+
+        <listener class-name="listeners.DataProviderListener"/>
+
+        <!-- Custom IReporter exercise completed -->
+        <!-- <listener class-name="reporting.CustomReporter"/> -->
+
+    </listeners>
+
+
+    <test name="Commerce Tests">
+
+        <groups>
+            <run>
+                <include name="cart"/>
+                <include name="smoke"/>
+                <include name="regression"/>
+                <include name="home"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="CartTest"/>
+            <class name="HomePageTest"/>
+        </classes>
+
+    </test>
+
+
+    <test name="Login Tests">
+
+        <classes>
+            <class name="LoginTest"/>
+            <class name="ExcelDataProviderTest"/>
+        </classes>
+
+    </test>
+
+</suite>

@@ -1,0 +1,24 @@
+{
+  "historyPath": "./allure-history.jsonl",
+
+  "categories": {
+    "rules": [
+      {
+        "id": "automation-technical-failure",
+        "name": "Automation / Technical Failure",
+        "matchers": {
+          "statuses": ["failed", "broken"],
+          "trace": "TimeoutException|NoSuchElementException|StaleElementReferenceException|ElementClickInterceptedException|WebDriverException"
+        }
+      },
+      {
+        "id": "test-assertion-failure",
+        "name": "Test / Assertion Failure",
+        "matchers": {
+          "statuses": ["failed"],
+          "trace": "AssertionError"
+        }
+      }
+    ]
+  }
+}
