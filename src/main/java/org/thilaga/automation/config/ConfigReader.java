@@ -36,7 +36,11 @@ public class ConfigReader {
 
     public static String get(String key) {
 
-        String value = properties.getProperty(key);
+        String value = System.getProperty(key);
+
+        if (value == null || value.isBlank()) {
+            value = properties.getProperty(key);
+        }
 
         if (value == null || value.isBlank()) {
             throw new ConfigurationException(
@@ -46,6 +50,5 @@ public class ConfigReader {
 
         return value;
     }
-
 
 }
